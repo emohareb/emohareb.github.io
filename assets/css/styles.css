@@ -354,7 +354,7 @@ img {
 .panel-cta h4,
 .panel-cta h5,
 .panel-cta h6 {
-  margin: 5px;
+  margin: 0;
 }
 .panel-cta .panel-body {
   padding: 35px;
