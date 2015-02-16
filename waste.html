@@ -99,7 +99,7 @@
 					<h1 class="page-title">Waste and Carbon Emissions</h1>
 				</header>
 				<h3>Waste - our most underexploited resource</h3>
-				<p>If I were to choose a single environmental issue that I felt has been able to successfully capture the public's attention, I would defintely choose waste management. While not without it's controversial elements, most people put their political views aside and partake in improving the management of their household (as well as non-residential) waste. People now invest time and effort to separate their waste streams, and with single-stream recycling, municipalities have facilitated the efforts of their residents. I'm sure that you've heard it used as the go-to response for those demonstrating their "concerned citizen" bona fides: "I recycle!" And we should applaud people who take this step, though it's just a first step in mitigating our environmental impacts.</p>
+				<p>If I were to choose a single environmental issue that I feel has been able to most successfully capture the public's attention and concern, I would choose waste management. While not without it's controversial elements, most people put their political views aside and partake in improving the management of their household (as well as non-residential) waste. People now invest time and effort to separate their waste streams, and with single-stream recycling, municipalities have facilitated the efforts of their residents. I'm sure that you've heard waste management used as the go-to response for people who are trying to demonstrate their "concerned citizen" bona fides: "Hey, I recycle!" And we should applaud people who make this effort, though it's just a first step in mitigating our environmental impacts.</p>
 				<p>However, all is not well in the realm of residential waste management, even if we achieve very high rates of waste diversion. From a carbon perspective, much more difficult decision making is required. Some considerations with respect to greenhouse gas mitigation from waste include:</p>
 				<ul>
 				<li>What do we do with our existing landfills?</li>
@@ -109,59 +109,67 @@
 				<li>How big a concern is the transport of waste to treatement facilities?</li>
 				</ul>  
 				<p>
-				These are just a few of the questions that might come to mind when considering the climate impact of residential waste. My doctoral supervisor <a href="http://www.civil.engineering.utoronto.ca/staff/professors/kennedy.htm"></a>Chris Kennedy</p> and I thought it would be worthwhile investigating the Greater Toronto Area's carbon emissions from household waste, examining the entire assortment of treatment methods used in the region in 2005. This was a point in time when the City of Toronto had just started treating household organic waste in large centralized digesters, so there was 5 principal treatment approaches being used: landfilling, incineration, composting, recycling, and <a href="http://www.wasteawarenesswales.org.uk/sites/default/files/Want_to_do_more/9.3.5%20How%20Anaerobic%20Digestion%20works%20English.pdf">anaerobic digestion (AD)</a>. The total emissions we calculated from these activities is presented in the pie chart below in kilo tonnes of CO2e.    
-				<canvas id="WM" width="600" height="400"></canvas>
+				These are just a few of the questions that might come to mind when considering the climate impact of residential waste. My doctoral supervisor <a href="http://www.civil.engineering.utoronto.ca/staff/professors/kennedy.htm">Chris Kennedy</a> and I thought it would be worthwhile investigating the Greater Toronto Area's carbon emissions from household waste, examining the entire assortment of treatment methods used in the region in 2005. This was a point in time when the City of Toronto had just started treating household organic waste in large centralized digesters, so there was 5 principal treatment approaches being used: landfilling, incineration, composting, recycling, and <a href="http://www.wasteawarenesswales.org.uk/sites/default/files/Want_to_do_more/9.3.5%20How%20Anaerobic%20Digestion%20works%20English.pdf">anaerobic digestion (AD)</a>. The total emissions we calculated from these activities is presented in the pie chart below in kilotonnes (kt) of CO2e.</p>    
+				
+				<canvas id="MSW" width="600" height="400"></canvas>
+				
 				<script>
-				// Bar Graph Data
-					var barData = {
-						labels : ["Landfills","Incineration","Composting","Anaerobic Digstion","Transportation"],
-						datasets : [
-							{
-							fillColor : "#48A497",
-							strokeColor : "#48A4D1",
-							data : [373, 30, 75, 0.1, 31]
-							},
-						]
-					}
-					var CO2eSeq= document.getElementById("Seq").getContext("2d"); 
-					// draw bar income
-					new Chart(CO2eSeq).Bar(barData);
-				</script>
+			         
+            	// pie chart data
+            	var pieData = [
+                {
+                    value: 373,
+                    color:"#878BB6"
+                },
+                {
+                    value : 30,
+                    color : "#4ACAB4"
+                },
+                {
+                    value : 75,
+                    color : "#FF8153"
+                },
+                {
+                    value : 0.1,
+                    color : "#FFEA88"
+                }
+
+            ];
+            // pie chart options
+            var pieOptions = {
+                 segmentShowStroke : false,
+                 animateScale : true
+            }
+            // get pie chart canvas
+            var MSW= document.getElementById("MSW").getContext("2d");
+            // draw pie chart
+            new Chart(MSW).Pie(pieData, pieOptions);
+            // bar chart data
+				</script>			
 				<p>
 				You might notice that landfills take up the bulk of 509 kt of CO2e emissions; that's because historically most waste has been treated through this means (I'll explain the <em>historically</em> part in a moment). Even though 40% of the GTA's waste was diverted from landfill in 2005 (this includes incinerated waste), households in the GTA still emitted a large amount - that's roughly 90 kg of CO2e per person, with just household waste. So where are all these emissions coming from?  Well, lets look at each one individually:
 				<ul>
-				<li>Methane released from landfills due to organic matter decomposing</li>
-				<li>Methane and nitrous oxide released from compost facilities that aren't able to completely aerate their compost piles</li>
-				<li>Methane leaking out of anaerocibic digestion facilities</li>
+				<li>Landfills - Methane released due to organic matter in buried waste decomposing without the presence of oxygen </li>
+				<li>Composting - Methane and nitrous oxide released from compost facilities that aren't able to completely aerate their compost piles</li>
+				<li>Anaerobic digestion - Methane leaking out of anaerocibic digestion facilities</li>
+				<li>Waste-to-Energy - Fossil carbon (in plastics) oxidized, releasing otherwise "stable" carbon </li>
+				<li>Recycling - Transportation within supply chain, disposal of unsuitable materials </li>
 				</ul> 
 
-				Nationally, non-residential waste is roughly 1.7 times (by weight) what is produced by households and 80% of that still goes to landfills (residences did better with around 67% of waste distined for the dump - <a href="http://www.statcan.gc.ca/pub/16-201-x/16-201-x2012000-eng.pdf">Stats Can, 2012</a>). You might be thinking "That's a lot of waste going to landfills!"  And then you might think "</p>
+				So all of these alternatives have a climate impact to them. Even backyard composting has a potential carbon impact, with some studies that oxygen-free zones develop within the unturned food/yard scraps, releasing methane (which, by the way, is 34 times more powerful in its contribution to climate change than CO2). Landfills and AD facilities capture much of this methane and generate electricity and heat, which has the potential to offset electricity generation in the grid or natural gas heating. Traditional waste-to-energy (i.e., incineration) can also generate electricity and heat, but releases fossil carbon - as the electricity grid becomes less carbon-intensive, electricity from these incinerators can become more polluting from a carbon perspective. Even recycling has a climate impact (albiet a lower one when compared to using virgin materials). Much of the recovered materials are unfit to be recycled and end up in landfills. As well, materials are often not processed into new goods locally, so they must be transported further afield (sometimes internationally)
+				</p>
+				<p> Once we've considered   
+				Nationally, non-residential waste is roughly 1.7 times (by weight) what is produced by households and 80% of that still goes to landfills (residences did better with around 67% of waste distined for the dump - <a href="http://www.statcan.gc.ca/pub/16-201-x/16-201-x2012000-eng.pdf">Stats Can, 2012</a>). You might be thinking "That's a lot of waste going to landfills!"</p>
 
 				<p>
 				</p>
-				<canvas id="comp" width="600" height="400"></canvas>
-				<script>
-				// Bar Graph Data
-					var barData = {
-						labels : ["Direct Carbon Storage - GTA", "GTA Emissions"],
-						datasets : [
-							{
-							fillColor : "#48A497",
-							strokeColor : "#48A4D1",
-							data : [317, 15800]
-							},
-						]
-					}
-					var CC= document.getElementById("comp").getContext("2d"); 
-					// draw bar income
-					new Chart(CC).Bar(barData);
-				</script>
+				<!--
 				<h3> What to do with waste?
 				</h3>
-				<p> When publishing this article, it occurred to us that a danger existed in quantifying embodied carbon sinks; for example, what if you grow trees that are used in harvested wood products consumed in the urban boundary?  Wouldn't those get counted as sinks twice? It is a concern, especially in cities that produce such resources within their borders. As a result, if one were to use our approach, they would have to also provide an estimate of the quantity of the HWP consumption that is locally sourced and subtract this figure. </p>
+				<p> The question of what to do with the waste is a complicated one. Waste-to-energy seems to solve the problem in the easiest fashion </p>
 				<p>		
 				You can download the article from the Journal of Air and Waste Management website <a href="http://www.tandfonline.com/doi/pdf/10.3155/1047-3289.61.5.480">here</a>.
-				</p>
+				</p> -->
 			</article>
 			<!-- /Article -->
 			
