@@ -109,7 +109,7 @@
 				<li>How big a concern is the transport of waste to treatement facilities?</li>
 				</ul>  
 				<p>
-				These are just a few of the questions that might come to mind when considering the climate impact of residential waste. My doctoral supervisor <a href="http://www.civil.engineering.utoronto.ca/staff/professors/kennedy.htm">Chris Kennedy</a> and I thought it would be worthwhile investigating the Greater Toronto Area's carbon emissions from household waste, examining the entire assortment of treatment methods used in the region in 2005. This was a point in time when the City of Toronto had just started treating household organic waste in large centralized digesters, so there was 5 principal treatment approaches being used: landfilling, incineration, composting, recycling, and <a href="http://www.wasteawarenesswales.org.uk/sites/default/files/Want_to_do_more/9.3.5%20How%20Anaerobic%20Digestion%20works%20English.pdf">anaerobic digestion (AD)</a>. The total emissions we calculated from these activities is presented in the pie chart below in kilotonnes (kt) of CO2e.</p>    
+				These are just a few of the questions that might come to mind when considering the climate impact of residential waste. My doctoral supervisor <a href="http://www.civil.engineering.utoronto.ca/staff/professors/kennedy.htm">Chris Kennedy</a> and I thought it would be worthwhile investigating the Greater Toronto Area's carbon emissions from household waste, examining the entire assortment of treatment methods used in the region in 2005. This was a point in time when the City of Toronto had just started treating household organic waste in large centralized digesters, so there was 5 principal treatment approaches being used: landfilling, incineration, composting, recycling, and <a href="http://www.wasteawarenesswales.org.uk/sites/default/files/Want_to_do_more/9.3.5%20How%20Anaerobic%20Digestion%20works%20English.pdf">anaerobic digestion (AD)</a>. The total emissions we calculated from these activities is presented in the pie chart below in kilotonnes (kt) of CO<sub>2</sub>e.</p>    
 				
 				<canvas id="MSW" width="600" height="400"></canvas>
 				
@@ -119,27 +119,34 @@
             	var pieData = [
                 {
                     value: 373,
-                    color:"#878BB6"
+                    color:"#878BB6",
+                    label:"Landfills"
                 },
                 {
                     value : 30,
-                    color : "#4ACAB4"
+                    color : "#4ACAB4",
+                    label: "Waste-to-Energy"
                 },
                 {
                     value : 75,
-                    color : "#FF8153"
+                    color : "#FF8153",
+                    label: "Composting"
                 },
                 {
                     value : 0.1,
-                    color : "#FFEA88"
+                    color : "#FFEA88",
+                    label: "Anaerobic Digestion"
+                },
+                {
+                    value : 31,
+                    color : "#FFEA88",
+                    label: "Transportation"
                 }
-
             ];
             // pie chart options
             var pieOptions = {
-                 segmentShowStroke : false,
-                 animateScale : true
-            }
+                 segmentShowStroke : false
+				}
             // get pie chart canvas
             var MSW= document.getElementById("MSW").getContext("2d");
             // draw pie chart
@@ -147,19 +154,20 @@
             // bar chart data
 				</script>			
 				<p>
-				You might notice that landfills take up the bulk of 509 kt of CO2e emissions; that's because historically most waste has been treated through this means (I'll explain the <em>historically</em> part in a moment). Even though 40% of the GTA's waste was diverted from landfill in 2005 (this includes incinerated waste), households in the GTA still emitted a large amount - that's roughly 90 kg of CO2e per person, with just household waste. So where are all these emissions coming from?  Well, lets look at each one individually:
+				You might notice that landfills take up the bulk of 509 kt of CO<sub>2</sub>e emissions; that's because historically most waste has been treated through this means (I'll explain the <em>historically</em> part in a moment). Even though 40% of the GTA's waste was diverted from landfill in 2005 (this includes incinerated waste), households in the GTA still emitted a large amount - that's roughly 90 kg of CO<sub>2</sub>e per person, with just household waste (non-residential waste would add much more). You might have also noticed that recycling doesn't show up on the figure. It just so happens that recycling prevents so much energy from being released through the replacement of virgin materials that its emissions are a negative figure (the USEPA WARM model suggests the GTA's recycling in 2005 avoided the emissioons of 1,400 kt CO<sub>2</sub>e). But lets put aside these benefits of recycling for a minute.  We still have a problem with greenhouse gas emissions from waste. So where are all these emissions coming from?  Well, lets look at each one individually, and put aside emissions from collection and transport to treatment facilities:
 				<ul>
 				<li>Landfills - Methane released due to organic matter in buried waste decomposing without the presence of oxygen </li>
 				<li>Composting - Methane and nitrous oxide released from compost facilities that aren't able to completely aerate their compost piles</li>
 				<li>Anaerobic digestion - Methane leaking out of anaerocibic digestion facilities</li>
 				<li>Waste-to-Energy - Fossil carbon (in plastics) oxidized, releasing otherwise "stable" carbon </li>
-				<li>Recycling - Transportation within supply chain, disposal of unsuitable materials </li>
+				<li>Recycling - Transportation away from sorting facilities to the material supply chain, as well as the disposal of materials unfit for recycling</li>
 				</ul> 
 
-				So all of these alternatives have a climate impact to them. Even backyard composting has a potential carbon impact, with some studies that oxygen-free zones develop within the unturned food/yard scraps, releasing methane (which, by the way, is 34 times more powerful in its contribution to climate change than CO2). Landfills and AD facilities capture much of this methane and generate electricity and heat, which has the potential to offset electricity generation in the grid or natural gas heating. Traditional waste-to-energy (i.e., incineration) can also generate electricity and heat, but releases fossil carbon - as the electricity grid becomes less carbon-intensive, electricity from these incinerators can become more polluting from a carbon perspective. Even recycling has a climate impact (albiet a lower one when compared to using virgin materials). Much of the recovered materials are unfit to be recycled and end up in landfills. As well, materials are often not processed into new goods locally, so they must be transported further afield (sometimes internationally)
+				I mentioned earlier that landfills have an impact because they have <em>historically</em> been used for storing waste - most relevant, storing organic waste. When you throw food scraps of office paper into the landfill, it takes years to break down. But after being buried for about a couple of weeks, the process eats up the limited oxygen available. That doesn't stop it though, as a different set of microbes get involved and these produce methane (which, by the way, is 34 times more powerful in its contribution to climate change than CO<sub>2</sub>). They work away for quite a while (depending upon the moisture and temperature in your landfill), so waste deposited years ago keeps on producing methane, regardless of how good your organics diversion is this year! 
+
+				So getting back to the list above, all of these alternatives have a climate impact to them. Even backyard composting has a carbon impact, with some studies showing that oxygen-free zones develop within your unturned food/yard scraps, releasing methane. Landfills and AD facilities capture much of this methane and generate electricity and heat, which has the potential to offset electricity generation in the grid or natural gas heating. Traditional waste-to-energy (i.e., incineration) can also generate electricity and heat, but releases fossil carbon - as the electricity grid becomes less carbon-intensive, electricity from these incinerators can become more polluting from a carbon perspective. Even recycling has a climate impact (albiet a lower one when compared to using virgin materials). Much of the recovered materials are unfit to be recycled and end up in landfills. As well, materials are often not processed into new goods locally, so they must be transported further afield (sometimes <a href="http://www.pri.org/stories/2014-02-18/chinas-green-fence-cleaning-americas-dirty-recycling">internationally</a>). 
 				</p>
-				<p> Once we've considered   
-				Nationally, non-residential waste is roughly 1.7 times (by weight) what is produced by households and 80% of that still goes to landfills (residences did better with around 67% of waste distined for the dump - <a href="http://www.statcan.gc.ca/pub/16-201-x/16-201-x2012000-eng.pdf">Stats Can, 2012</a>). You might be thinking "That's a lot of waste going to landfills!"</p>
+				<p> At least we divert a fair amount of our residential waste from landfill. But what about the waste from our workplaces and the places we go to for entertainment or to purchase our lunches. Nationally, non-residential waste is roughly 1.7 times (by weight) what is produced by households and 80% of that still goes to landfills (residences did better with around 67% of waste that had been distined for the dump - <a href="http://www.statcan.gc.ca/pub/16-201-x/16-201-x2012000-eng.pdf">Stats Can, 2012</a>). All of this landfilled waste represents an opportunity to do better - to capture valuable materials (such as aluminum or steel), to return food waste to the agricultural soil, or at very least, to capture the energy through a number of conversion options available. Waste remains low-hanging fruit not only for carbon emission reductions, but for sustainability in general.</p>.  
 
 				<p>
 				</p>
